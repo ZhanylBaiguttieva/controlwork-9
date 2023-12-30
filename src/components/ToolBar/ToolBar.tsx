@@ -1,15 +1,14 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
-import Categories from '../Categories/Categories';
 
-const ToolBar: React.FC<React.PropsWithChildren> = () => {
+const ToolBar: React.FC<React.PropsWithChildren> = ({children}) => {
   return (
     <>
       <header>
         <NavBar/>
       </header>
       <main className="container-fluid">
-        <Categories/>
+        {children}
       </main>
     </>
   );
