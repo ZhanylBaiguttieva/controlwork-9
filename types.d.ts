@@ -34,3 +34,9 @@ export interface TransactionBase {
   amount: number;
   createdAt: string;
 }
+export interface TransactionUnit {
+  id: string;
+  category: [id: string];
+  amount: number;
+  createdAt: string;
+}
