@@ -16,7 +16,7 @@ interface Props {
 const CategoryForm: React.FC<Props> = ({onSubmit, existingCategory = initialState, isEdit = false, isLoading= false}) => {
   const [category, setCategory] = useState<ApiCategory>(existingCategory);
 
-  const changeCategory = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const changeCategory = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setCategory((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -37,14 +37,11 @@ const CategoryForm: React.FC<Props> = ({onSubmit, existingCategory = initialStat
       <h4>{isEdit ? 'Edit category' : 'Add new category'}</h4>
       <div className="form-group">
         <label htmlFor="type">Type:</label>
-        <input
-          type="text"
-          name="type"
-          id="type"
-          className="form-control"
-          value={category.type}
-          onChange={changeCategory}
-        />
+        <select className="form-control" id="type" name="type"  required value={category.type} onChange={changeCategory}>
+          <option value=""> </option>
+          <option value='expense'>Expense</option>
+          <option value='income'>Income</option>
+        </select>
       </div>
       <div className="form-group">
         <label htmlFor="name">Name</label>
