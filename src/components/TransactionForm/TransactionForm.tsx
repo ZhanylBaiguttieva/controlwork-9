@@ -1,12 +1,11 @@
-import {ApiTransaction, Transaction, TransactionBase, TransactionMutation} from '../../../types';
+import {ApiTransaction, TransactionMutation} from '../../../types';
 import React, {useEffect, useState} from 'react';
 import ButtonSpinner from '../Spinners/ButtonSpinner';
 import {useAppDispatch, useAppSelector} from '../../app/hooks';
 import {selectCategories} from '../../store/categories/categoriesSlice';
 import {fetchCategories} from '../../store/categories/categoriesThunks';
-import {createTransaction, fetchTransactions} from '../../store/transactions/transactonsThunks';
+import {fetchTransactions} from '../../store/transactions/transactonsThunks';
 import {selectTransactions} from '../../store/transactions/transactionsSlice';
-import {useNavigate} from 'react-router-dom';
 
 const initialState: TransactionMutation= {
   type: '',
@@ -23,7 +22,6 @@ interface Props {
 const TransactionForm: React.FC<Props> = ({onSubmit, existingTransaction = initialState, isEdit = false, isLoading= false}) => {
   const [transaction, setTransaction] = useState<TransactionMutation>(existingTransaction);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const categories = useAppSelector(selectCategories);
   const transactions = useAppSelector(selectTransactions);
 

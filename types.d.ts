@@ -30,13 +30,13 @@ export interface TransactionsList {
 }
 
 export interface TransactionBase {
-  category: [id: string];
+  category: string;
   amount: number;
   createdAt: string;
 }
 export interface TransactionUnit {
   id: string;
-  category: [id: string];
+  category:  string;
   amount: number;
   createdAt: string;
 }
