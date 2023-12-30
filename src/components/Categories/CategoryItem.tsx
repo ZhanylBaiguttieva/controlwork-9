@@ -10,7 +10,7 @@ interface Props {
   onDelete: React.MouseEventHandler;
 }
 
-const DishItem: React.FC<Props> = ({category, deleteLoading, onDelete}) => {
+const CategoryItem: React.FC<Props> = ({category, deleteLoading, onDelete}) => {
 
   return (
     <div className="card mb-2">
@@ -36,4 +36,4 @@ const DishItem: React.FC<Props> = ({category, deleteLoading, onDelete}) => {
   );
 };
 
-export default DishItem;
+export default CategoryItem;
